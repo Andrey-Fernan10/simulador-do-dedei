@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="pt=br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Caixa Eletrônico</title>
+</head>
+<body>
+    
+    <div>
+        <h1>Simulador de Saque 2000</h1>
+
+        <p>Saldo da conta: R$ <span id="saldo"></span></p>
+
+        <p>
+            <span>Valor do Saque</span>
+            <input type="text" id="ValorDoSaque">
+        </p>
+        <p>
+            <button onclick="realizarSaque()">Sacar</button>
+        </p>
+        <p>
+            <span>Valor de Depósito</span>
+            <input type="text" id="deposito">
+        </p>
+        <p>
+            <button onclick="Depositar()">Depositar</button>
+        </p>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
