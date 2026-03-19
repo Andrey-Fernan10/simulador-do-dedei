@@ -1,20 +1,3 @@
-var dindin = Number(prompt("Qual seu saldo?"))
-while (isNaN(dindin)) {
-    alert("Isso não é um número, cara")
-    dindin = Number(prompt("Qual seu saldo?"))
-}
-if (dindin <=99) {
-    alert ("Muito pobre para usar o programa, tente novamente mais tarde.")
-    dindin = Number(prompt("Qual seu saldo de verdade?"))
-    while (isNaN(dindin) || (dindin<=99)) {
-        alert("Isso não pode ser seu saldo de verdade, tente novamente.")
-        dindin = Number(prompt("Qual seu saldo de verdade?"))
-    }
-} else {
-    alert("Bem vindo ao simulador de saque!")
-}
-saldo = dindin
-
     const $input = document.getElementById('ValorDoSaque')
     const $saldo = document.getElementById('saldo')
     const $deposito = document.getElementById('deposito')
@@ -27,39 +10,67 @@ saldo = dindin
         console.log("Valor do deposito", $input.value);
             var sacada = Number($input.value)
             if (isNaN(sacada)) {
-                alert("Isso não é um número. Melhore.")
+                burro.innerText = "Isso não é um número. Melhore"
                 sacada = false
+                setTimeout(function() {
+        burro.innerText = ""
+    }, 2000)
                 return
             }
             if (sacada<1) {
-                alert("Ninguém saca tão pouco assim, me recuso.")
+                burro.innerText = "Ninguém saca tão pouco assim, me recuso."
                 sacada = false
+                setTimeout(function() {
+        burro.innerText = ""
+    }, 2000)
+    return
             }
             if (sacada>saldo) {
-            alert("Saldo Insuficiente")
+            burro.innerText = "Saldo Insuficiente"
                 sacada = false
+                setTimeout(function() {
+        burro.innerText = ""
+    }, 2000)
             } else {
-                saldo = saldo - sacada.toFixed(2)
-                $saldo.innerHTML = saldo
+                saldo = saldo - sacada
+                $saldo.innerHTML = saldo.toFixed(2)
+                genio.innerText = "Saque efetuado com sucesso"
+                setTimeout(function() {
+        genio.innerText = ""
+    }, 2000)
             }
     }    
         function Depositar() {
     console.log("Valor do deposito", saldo);
             var deposite = Number($deposito.value)
                         if (isNaN(deposite)) {
-                alert("Isso não é um número. Melhore.")
+                pobre.innerText = "Isso não é um número. Melhore."
                 deposite = false
+                  setTimeout(function() {
+        pobre.innerText = ""
+    }, 2000)
                 return
             }
             if (deposite<1) {
-                alert("Como tu quer depositar tão pouco?")
+                pobre.innerText = "Deposito negado, reveja seus valores"
                 deposite = false
+                  setTimeout(function() {
+        pobre.innerText = ""
+    }, 2000)
+    return
             }
             if (deposite>500) {
-               alert("Rico até demais")
+               pobre.innerText = "Programa muito limitado para tal quantia, seja mais humilde"
                 deposite = false
+                setTimeout(function() {
+        pobre.innerText = ""
+    }, 2000)
             } else {
-                saldo = saldo + deposite
-                $saldo.innerHTML = saldo
+              Number(saldo = saldo + deposite)
+                $saldo.innerHTML = saldo.toFixed(2)
+                rico.innerText = "Deposito feito com Sucesso"
+                setTimeout(function() {
+        rico.innerText = ""
+    }, 2000)
             }
         }

@@ -1,21 +1,43 @@
 <!DOCTYPE html>
-<html lang="pt=br">
+<html lang="pt-br">
 <head>
+    <link rel = "stylesheet" href = "drip.css">
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=15.0">
     <title>Caixa Eletrônico</title>
 </head>
 <body>
-    
-    <div>
+   
+    <div id="menu" style="display: block">
+    <h1>Bem Vindo ao Simulador de Saque</h1>
+    <h2>Aperte em "Iniciar" para iniciar sua expêriencia!</h2>
+
+    <button onclick="ir()">Iniciar</button>
+    </div>
+    <div id="meio" style="display: none">
+        <h1> Insira o valor de saldo que deseja:</h1>
+        <p>
+            <span>Valor de Saldo:</span>
+            <input type="text" id="meuSaldo" placeholder="R$0.00">
+        </p>
+        <p id="erro" style="color: red; font-weight: bold"></p>
+        <p>
+            <button onclick="simulador()">Ir Para o Simulador</button>
+        </p>
+    </div>
+
+    <div id="pagina" style="display: none">
         <h1>Simulador de Saque 2000</h1>
 
-        <p>Saldo da conta: R$ <span id="saldo"></span></p>
+        <p>Saldo da conta: R$ <span id="saldo">0.00</span></p>
 
         <p>
             <span>Valor do Saque</span>
             <input type="text" id="ValorDoSaque">
         </p>
+        <p id="burro" style="color: red; font-weight: bold"></p>
+        <p id="genio" style="color: green; font-weight: bold"></p>
+
         <p>
             <button onclick="realizarSaque()">Sacar</button>
         </p>
@@ -23,10 +45,14 @@
             <span>Valor de Depósito</span>
             <input type="text" id="deposito">
         </p>
+        <p id="pobre" style="color: red; font-weight: bold"></p>
+        <p id="rico" style="color: green; font-weight: bold"></p>
+
         <p>
             <button onclick="Depositar()">Depositar</button>
         </p>
     </div>
+      <script src="scriptUI.js"></script>
     <script src="script.js"></script>
 </body>
 </html>
